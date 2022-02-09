@@ -70,11 +70,92 @@ namespace Common.Utils.Resorces {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cita Cancelada satisfactoriamente.
+        /// </summary>
+        public static string DatesCancel {
+            get {
+                return ResourceManager.GetString("DatesCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No fue posible cancelar la cita, por favor intentalo de nuevo..
+        /// </summary>
+        public static string DatesNotCancel {
+            get {
+                return ResourceManager.GetString("DatesNotCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error interno..
         /// </summary>
         public static string Error500 {
             get {
                 return ResourceManager.GetString("Error500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro eliminado satisfactoriamente..
+        /// </summary>
+        public static string ItemDeleted {
+            get {
+                return ResourceManager.GetString("ItemDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro guardado satisfactoriamente..
+        /// </summary>
+        public static string ItemInserted {
+            get {
+                return ResourceManager.GetString("ItemInserted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No fue posible eliminar el registro, por favor intentalo de nuevo..
+        /// </summary>
+        public static string ItemNoDeleted {
+            get {
+                return ResourceManager.GetString("ItemNoDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No fue posible guardar el registro, por favor intentalo de nuevo..
+        /// </summary>
+        public static string ItemNoInserted {
+            get {
+                return ResourceManager.GetString("ItemNoInserted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No fue posible actualizar el registro, por favor intentalo de nuevo..
+        /// </summary>
+        public static string ItemNoUpdated {
+            get {
+                return ResourceManager.GetString("ItemNoUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro actualizado satisfactoriamente..
+        /// </summary>
+        public static string ItemUpdated {
+            get {
+                return ResourceManager.GetString("ItemUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estimado usuario, no posees los suficientes privilegios para realizar esta acción. Por favor contacta con un administrador..
+        /// </summary>
+        public static string WithoutPermission {
+            get {
+                return ResourceManager.GetString("WithoutPermission", resourceCulture);
             }
         }
     }

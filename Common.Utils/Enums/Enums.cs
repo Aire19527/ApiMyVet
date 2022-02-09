@@ -68,10 +68,14 @@ namespace Common.Utils.Enums
             ConsultarCitas=15,
             CancelarCitas=16,
             ActualizarCitas=17,
+            ActualizarCitasVeterinario=18,
+            ConsultarCitasVetrinario = 19,
+            CancelarCitasVeterinario=20,
+            EliminarCita=21,
 
             //Estados
-            ConsultarEstados = 18,
-            ActualizarEstado = 19,
+            ConsultarEstados = 22,
+            ActualizarEstado = 23,
         }
        
         public enum RolUser

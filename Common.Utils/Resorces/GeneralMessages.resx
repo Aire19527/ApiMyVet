@@ -121,7 +121,34 @@
     <value>Credenciales Incorrectas.</value>
     <comment>se valida credenciales del usuario</comment>
   </data>
+  <data name="DatesCancel" xml:space="preserve">
+    <value>Cita Cancelada satisfactoriamente</value>
+  </data>
+  <data name="DatesNotCancel" xml:space="preserve">
+    <value>No fue posible cancelar la cita, por favor intentalo de nuevo.</value>
+  </data>
   <data name="Error500" xml:space="preserve">
     <value>Ha ocurrido un error interno.</value>
+  </data>
+  <data name="ItemDeleted" xml:space="preserve">
+    <value>Registro eliminado satisfactoriamente.</value>
+  </data>
+  <data name="ItemInserted" xml:space="preserve">
+    <value>Registro guardado satisfactoriamente.</value>
+  </data>
+  <data name="ItemNoDeleted" xml:space="preserve">
+    <value>No fue posible eliminar el registro, por favor intentalo de nuevo.</value>
+  </data>
+  <data name="ItemNoInserted" xml:space="preserve">
+    <value>No fue posible guardar el registro, por favor intentalo de nuevo.</value>
+  </data>
+  <data name="ItemNoUpdated" xml:space="preserve">
+    <value>No fue posible actualizar el registro, por favor intentalo de nuevo.</value>
+  </data>
+  <data name="ItemUpdated" xml:space="preserve">
+    <value>Registro actualizado satisfactoriamente.</value>
+  </data>
+  <data name="WithoutPermission" xml:space="preserve">
+    <value>Estimado usuario, no posees los suficientes privilegios para realizar esta acción. Por favor contacta con un administrador.</value>
   </data>
 </root>

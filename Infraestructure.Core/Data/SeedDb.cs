@@ -286,6 +286,34 @@ namespace Infraestructure.Core.Data
                         Permission="Actualizar Citas",
                         Description="Actualizar la citas"
                     },
+                    new PermissionEntity
+                    {
+                        IdPermission=(int)Enums.Permission.CancelarCitasVeterinario,
+                        IdTypePermission=(int)Enums.TypePermission.Veterinaria,
+                        Permission="Cancelar Citas por un Veterinario",
+                        Description="Cancelar la citas del veterinario"
+                    },
+                    new PermissionEntity
+                    {
+                        IdPermission=(int)Enums.Permission.ActualizarCitasVeterinario,
+                        IdTypePermission=(int)Enums.TypePermission.Veterinaria,
+                        Permission="Actualizar Citas por un Veterinario",
+                        Description="Actualizar la citas del veterinario"
+                    },
+                    new PermissionEntity
+                    {
+                        IdPermission=(int)Enums.Permission.ConsultarCitasVetrinario,
+                        IdTypePermission=(int)Enums.TypePermission.Veterinaria,
+                        Permission="Consultar Citas por un Veterinario",
+                        Description="Consultar la citas del veterinario"
+                    },
+                    new PermissionEntity
+                    {
+                        IdPermission=(int)Enums.Permission.EliminarCita,
+                        IdTypePermission=(int)Enums.TypePermission.Veterinaria,
+                        Permission="Eliminar Citas",
+                        Description="Eliminar la citas"
+                    },
                 });
 
                 await _context.SaveChangesAsync();

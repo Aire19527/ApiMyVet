@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -28,6 +31,29 @@ namespace Common.Utils.Helpers
             DateTime origin = DateTime.UtcNow;
             TimeSpan diff = date.ToUniversalTime() - origin;
             return Math.Floor(diff.TotalSeconds);
+        }
+
+
+
+        /// <summary>
+        /// Method to get value claim from JwtToken
+        /// </summary>
+        /// <param name="authorization"> Request.Headers["Authorization"] </param>
+        /// <param name="claim"></param>
+        /// <returns></returns>
+        public static string GetClaimValue(string token, string claim)
+        {
+            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+
+            string authHeader = token.Replace("Bearer ", "").Replace("bearer ", "");
+            JwtSecurityToken tokenS = handler.ReadToken(authHeader) as JwtSecurityToken;
+
+            Claim claimData = tokenS.Claims.FirstOrDefault(cl => cl.Type.ToUpper() == claim.ToUpper());
+
+            if (claimData == null || string.IsNullOrEmpty(claimData.Value))
+                throw new UnauthorizedAccessException();
+
+            return claimData.Value;
         }
     }
 }

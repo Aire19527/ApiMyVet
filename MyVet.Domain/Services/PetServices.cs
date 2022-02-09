@@ -1,6 +1,7 @@
 ﻿using Infraestructure.Core.UnitOfWork.Interface;
 using Infraestructure.Entity.Model.Vet;
 using MyVet.Domain.Dto;
+using MyVet.Domain.Dto.Pet;
 using MyVet.Domain.Services.Interface;
 using System;
 using System.Collections.Generic;
@@ -26,14 +27,14 @@ namespace MyVet.Domain.Services
 
 
         #region Methods
-        public List<PetDto> GetAllMyPets(int idUser)
+        public List<ConsultPetDto> GetAllMyPets(int idUser)
         {
             var pets = _unitOfWork.PetRepository.FindAll(x => x.UserPetEntity.IdUser == idUser,
                                                         p => p.UserPetEntity,
                                                         p => p.SexEntity,
                                                         p => p.TypePetEntity).ToList();
 
-            List<PetDto> list = pets.Select(x => new PetDto
+            List<ConsultPetDto> list = pets.Select(x => new ConsultPetDto
             {
                 DateBorns = x.DateBorns,
                 Id = x.Id,
@@ -108,28 +109,11 @@ namespace MyVet.Domain.Services
             return response;
         }
 
-        public async Task<bool> InsertPetAsync(PetDto pet)
+        public async Task<bool> InsertPetAsync(InsertPetDto pet, int idUser)
         {
-            //PetEntity petEntity = new PetEntity()
-            //{
-            //    DateBorns = pet.DateBorns,
-            //    IdSex=  pet.IdSex,
-            //    IdTypePet= pet.IdTypePet,
-            //    Name= pet.Name, 
-            //};
-            //_unitOfWork.PetRepository.Insert(petEntity);
-
-            //UserPetEntity userPetEntity = new UserPetEntity()
-            //{
-            //    IdUser=pet.IdUser,
-            //    IdPet=petEntity.Id
-            //};
-            //_unitOfWork.UserPetRepository.Insert(userPetEntity);
-
-
             UserPetEntity userPetEntity = new UserPetEntity()
             {
-                IdUser = pet.IdUser,
+                IdUser = idUser,
                 PetEntity = new PetEntity()
                 {
                     DateBorns = pet.DateBorns,

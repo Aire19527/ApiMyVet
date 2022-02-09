@@ -28,6 +28,7 @@ namespace Vet.Handlers
             services.AddTransient<IRolServices, RolServices>();
             services.AddTransient<IPetServices, PetServices>();
             services.AddTransient<IDatesServices, DatesServices>();
+            services.AddTransient<IPermissionServices, PermissionServices>();
         }
     }
 }

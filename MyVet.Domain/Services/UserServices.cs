@@ -38,7 +38,6 @@ namespace MyVet.Domain.Services
 
         public TokenDto Login(LoginDto login)
         {
-
             UserEntity user = _unitOfWork.UserRepository.FirstOrDefault(x => x.Email == login.UserName
                                                                             && x.Password == login.Password,
                                                                            r => r.RolUserEntities);
@@ -70,7 +69,7 @@ namespace MyVet.Domain.Services
                     audience: tokenAppSetting.GetSection("Audience").Value,
                     claims: _Claims,
                     notBefore: DateTime.UtcNow,
-                    expires: DateTime.UtcNow.AddMinutes(2)
+                    expires: DateTime.UtcNow.AddMinutes(60)
                 );
 
             var _token = new JwtSecurityToken(

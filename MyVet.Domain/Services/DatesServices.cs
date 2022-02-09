@@ -1,7 +1,9 @@
 ﻿using Common.Utils.Enums;
+using Common.Utils.Exceptions;
 using Infraestructure.Core.UnitOfWork.Interface;
 using Infraestructure.Entity.Model.Vet;
 using MyVet.Domain.Dto;
+using MyVet.Domain.Dto.Dates;
 using MyVet.Domain.Services.Interface;
 using System;
 using System.Collections.Generic;
@@ -26,7 +28,7 @@ namespace MyVet.Domain.Services
 
         #region Methods
 
-        public List<DatesDto> GetAllMyDates(int idUser)
+        public List<ConsultDatesDto> GetAllMyDates(int idUser)
         {
             var dates = _unitOfWork.DatesRepository.FindAll(x => x.PetEntity.UserPetEntity.IdUser == idUser,
                                                              p => p.PetEntity.UserPetEntity,
@@ -34,7 +36,7 @@ namespace MyVet.Domain.Services
                                                              p => p.StateEntity,
                                                              p => p.ServicesEtntity);
 
-            List<DatesDto> listDates = dates.Select(x => new DatesDto
+            List<ConsultDatesDto> listDates = dates.Select(x => new ConsultDatesDto
             {
                 Id = x.Id,
                 Contact = x.Contact,
@@ -55,7 +57,7 @@ namespace MyVet.Domain.Services
             return listDates;
         }
 
-        public List<DatesDto> GetAllDates(int idUser)
+        public List<ConsultDatesDto> GetAllDates(int idUser)
         {
             var dates = _unitOfWork.DatesRepository.FindAll(x => (x.IdUserVet == idUser || x.IdUserVet == null),
                                                              p => p.PetEntity.UserPetEntity,
@@ -74,7 +76,7 @@ namespace MyVet.Domain.Services
 
 
 
-            List<DatesDto> listDates = datesSelect.Select(x => new DatesDto
+            List<ConsultDatesDto> listDates = datesSelect.Select(x => new ConsultDatesDto
             {
                 Id = x.Id,
                 Contact = x.Contact,
@@ -95,8 +97,12 @@ namespace MyVet.Domain.Services
             return listDates;
         }
 
-        public async Task<bool> InsertDatesAsync(DatesDto data)
+        public async Task<bool> InsertDatesAsync(InsertDatesDto data)
         {
+            if (data.Date.Date<= DateTime.Now.Date)
+                throw new BusinessException("La fecha no puede ser inferior al dia actual");
+
+
             DatesEntity dates = new DatesEntity()
             {
                 Contact = data.Contact,
