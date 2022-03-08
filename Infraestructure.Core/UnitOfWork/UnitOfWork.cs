@@ -33,11 +33,12 @@ namespace Infraestructure.Core.UnitOfWork
         private IRepository<UserEntity> userRepository;
         private IRepository<RolEntity> rolRepository;
         private IRepository<RolUserEntity> rolUserRepository;
-        private IRepository<StateEntity> stateRepository;
         private IRepository<TypeStateEntity> typeStateRepository;
         private IRepository<PermissionEntity> permissionRepository;
         private IRepository<TypePermissionEntity> typePermissionRepository;
         private IRepository<RolPermissionEntity> rolPermissionRepository;
+
+        private IRepository<StateEntity> stateRepository;
 
         private IRepository<DatesEntity> datesRepository;
         private IRepository<PetEntity> petRepository;

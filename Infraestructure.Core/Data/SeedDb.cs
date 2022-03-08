@@ -26,12 +26,12 @@ namespace Infraestructure.Core.Data
         {
             await _context.Database.EnsureCreatedAsync();
             await CheckTypeStateAsync();
-            await CheckStateAsync();
+            //await CheckStateAsync();
             await CheckTypePermissionAsync();
             await CheckPermissionAsync();
             await CheckRolAsync();
             await CheckRolPermissonAsync();
-            await CheckServicesAsync();
+            //await CheckServicesAsync();
 
         }
 

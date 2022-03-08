@@ -34,7 +34,6 @@ namespace Common.Utils.Helpers
         }
 
 
-
         /// <summary>
         /// Method to get value claim from JwtToken
         /// </summary>

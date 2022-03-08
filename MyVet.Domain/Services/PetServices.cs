@@ -1,4 +1,5 @@
-﻿using Infraestructure.Core.UnitOfWork.Interface;
+﻿using Common.Utils.Exceptions;
+using Infraestructure.Core.UnitOfWork.Interface;
 using Infraestructure.Entity.Model.Vet;
 using MyVet.Domain.Dto;
 using MyVet.Domain.Dto.Pet;
